@@ -2,6 +2,7 @@
 
 import Reveal from "./Reveal";
 import Image from "next/image";
+import { Github } from "lucide-react";
 
 const projects = [
   {
@@ -11,6 +12,7 @@ const projects = [
       "Collaboratively developed a product application as part of a team project. Contributed to requirement analysis, application workflow, and functionality development.",
     tech: ["React", "Express", "MongoDB", "Node.js", "TypeScript", "Tailwind"],
     status: "Team project",
+    sourcecode:"https://github.com/aj-allenn/double-barrel"
   },
   {
     title: "Agency.ai",
@@ -19,6 +21,7 @@ const projects = [
       "Developed a responsive Website using React and Tailwind CSS with reusable components and modern UI design.",
     tech: ["React", "Tailwind"],
     status: "Frontend",
+    sourcecode:"https://github.com/aj-allenn/agency.ai",
   },
   {
     title: "College Management System",
@@ -27,6 +30,7 @@ const projects = [
       "Developed a full-stack College Management System using the MERN stack with secure authentication and scalable APIs.",
     tech: ["Node.js", "Express", "MongoDB", "JavaScript", "Tailwind"],
     status: "Full-stack",
+    sourcecode:"https://github.com/aj-allenn/Express-Student-management",
   },
   {
     title: "Contact Management Application",
@@ -35,6 +39,7 @@ const projects = [
       "Contact management application with CRUD operations and persistent storage.",
     tech: ["React", "JavaScript", "HTML", "CSS"],
     status: "CRUD app",
+    sourcecode:"https://github.com/aj-allenn/Contact-Management-App",
   },
   {
     title: "Weather Application",
@@ -144,6 +149,19 @@ export default function Projects() {
                   {t}
                 </span>
               ))}
+              {/* GITHUB BUTTON */}
+              {project.sourcecode && (
+                <a
+                  href={project.sourcecode}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full border border-transparent bg-gradient-to-r from-cyan-400/70 via-blue-500/70 to-purple-500/70 dark:from-cyan-400/50 dark:via-blue-500/50 dark:to-purple-500/50 text-black dark:text-slate-100 shadow-[0_0_18px_rgba(56,189,248,0.35)] hover:brightness-110 transition-all duration-200 hover:-translate-y-0.5"
+                  aria-label={`View ${project.title} on GitHub`}
+                >
+                  <Github size={12} className="shrink-0" />
+                  <span className="tracking-wide">GitHub</span>
+                </a>
+              )}
             </div>
           </Reveal>
         ))}

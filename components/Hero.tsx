@@ -26,11 +26,11 @@ const Hero = () => {
         <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border border-white/10 bg-white/5 p-2 mb-8 shadow-glow">
           <div className="rounded-full overflow-hidden border border-white/10">
           <Image
-            src="/images/sherin.png"
+            src="/images/IMG-20250418-WA0005.jpg.jpeg"
             alt="Allen"
-            width={320}
-            height={320}
-            className="object-cover"
+            width={300}
+            height={300}
+            className="object-cover rounded-full"
             priority
           />
           </div>
