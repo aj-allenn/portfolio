@@ -7,14 +7,14 @@ const projects = [
   {
     title: "Double Barrel",
     description:
-      "Collaboratively developed a product application as part of a team project.Contributed to requirement analysis, application workflow, and functionality development.Coordinated with team members to ensure smooth integration and timely completion of the project.Gained hands-on experience in teamwork, problem-solving, and product-based application development",
+      "Collaboratively developed a product application as part of a team project.Contributed to requirement analysis, application workflow, and functionality development.Coordinated with team members to ensure smooth integration and timely completion of the project.",
     tech: ["React","Express","TypeScript","Tailwind"],
     status: "Team project",
   },
   {
      title: "Agency.ai",
     description:
-      "Developed a responsive Website using React and Tailwind CSS, focusing on reusable components, state management, and modern UI design.",
+      "Developed a responsive Website using React and Tailwind CSS, focusing on reusable components, state management, and modern UI design. Optimized performance by using efficient React patterns, component memoization, and minimized re-renders. Integrated modern design principles, including dark/light mode support, consistent color schemes.",
     tech: ["React","Tailwind"],
    
     status: "Frontend",
@@ -22,7 +22,7 @@ const projects = [
   {
     title: "College Management System",
     description:
-      "Developed a full-stack College Management System using the MERN stack. Implemented secure authentication, role-based access for admins, faculty, andstudents, and features such as course management, student registration, and timetable handling. Built responsive React interfaces and RESTful APIs with Node.js and Express, with MongoDB used for efficientdata storage and retrieval. Focused on clean code, scalability, and performance optimization",
+      "Developed a full-stack College Management System using the MERN stack. Implemented secure authentication, role-based access for admins, faculty, andstudents, and features such as course management, student registration, and timetable handling. Built responsive React interfaces and RESTful APIs with Node.js and Express, with MongoDB used for efficientdata storage and retrieval.",
     tech: ["Node.js","Express","MongoDB","JavaScript","Tailwind","HTML"],
     status: "Full-stack",
   },
@@ -87,41 +87,43 @@ export default function Projects() {
         </div>
       </Reveal>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
         {projects.map((project, index) => (
-          <Reveal
-            key={index}
-            delay={index * 0.06}
-            className="group card p-4 transition-all duration-300 will-change-transform hover:-translate-y-1 hover:bg-white/8 hover:shadow-[0_0_55px_rgba(34,211,238,0.10)]"
-          >
-            <div className={`-m-4 mb-4 rounded-[1.1rem] p-4 bg-gradient-to-br ${accentByIndex(index)}`}>
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="text-xs text-white/75">{project.status}</p>
-                  <h3 className="mt-2 text-xl font-semibold text-white">
-                    {project.title}
-                  </h3>
-                </div>
-                <span className="text-xs font-mono text-white/60">0{index + 1}</span>
-              </div>
-            </div>
 
-            <p className="text-slate-200/80 mb-4 leading-relaxed">
-              {project.description}
-            </p>
+         <Reveal
+          key={index}
+          delay={index * 0.06}
+          className="group card p-3 md:p-2 transition-all duration-300 will-change-transform hover:-translate-y-1 hover:bg-white/8 hover:shadow-[0_0_55px_rgba(34,211,238,0.10)] self-start"
+        >
+  <div className={`-m-3 mb-3 rounded-[1rem] p-3 bg-gradient-to-br ${accentByIndex(index)}`}>
+    <div className="flex items-start justify-between gap-2">
+      <div>
+        <p className="text-xs text-white/75">{project.status}</p>
+        <h3 className="mt-1 text-lg font-semibold text-white">
+          {project.title}
+        </h3>
+      </div>
+      <span className="text-xs font-mono text-white/60">0{index + 1}</span>
+    </div>
+  </div>
 
-            <div className="flex flex-wrap gap-2 mb-6">
-              {project.tech.map((t) => (
-                <span
-                  key={t}
-                  className={`text-xs px-3 py-1 rounded-full border ${techChipClass(t)}`}
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
+  <p className="text-slate-200/80 mb-2 leading-snug text-sm">
+    {project.description}
+  </p>
 
-          </Reveal>
+  <div className="flex flex-wrap gap-1 mb-3">
+    {project.tech.map((t) => (
+      <span
+        key={t}
+        className={`text-xs px-2 py-0.5 rounded-full border ${techChipClass(t)}`}
+      >
+        {t}
+      </span>
+    ))}
+  </div>
+</Reveal>
+
+
         ))}
       </div>
     </section>

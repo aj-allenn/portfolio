@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import SplashCursor from "@/components/SplashCursor";
+import Providers from "./providers";
 
 /* ✅ Initialize fonts */
 const geistSans = Geist({
@@ -26,12 +28,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased animated-bg grain bg-grid`}
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased animated-bg grain bg-grid transition-colors duration-300`}
       >
+        <Providers>
+        <SplashCursor/>
         <Navbar />
         {children}
+        </Providers>
       </body>
     </html>
   );
