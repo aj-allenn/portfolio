@@ -48,6 +48,7 @@ const projects = [
       "Weather forecast app using OpenWeather API with real-time data.",
     tech: ["JavaScript", "HTML", "CSS"],
     status: "API integration",
+    sourcecode:"https://github.com/aj-allenn/Weather-Application",
   },
 ];
 
