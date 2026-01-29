@@ -79,7 +79,7 @@ export default function Navbar() {
 
 
        <a 
-        href="/resume/Allen-John.pdf"
+        href="/resume/Allen_resume.pdf"
         target="_blank"
         rel="noopener noreferrer"
         onClick={onClick}

@@ -46,7 +46,7 @@ const Hero = () => {
 
        
         <p className="text-black/70 dark:text-slate-200/70 text-lg mb-10">
-          Full-Stack Developer | Next.js | React
+          MERN-Stack Developer | Next.js | React
         </p>
 
         
@@ -69,7 +69,7 @@ const Hero = () => {
 
           {/* Resume Download */}
           <a
-            href="/resume/Allen-John.pdf"
+            href="/resume/Allen_resume.pdf"
             download
             className="
               inline-flex items-center gap-2
