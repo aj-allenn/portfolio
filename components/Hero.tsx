@@ -37,15 +37,15 @@ const Hero = () => {
         </div>
 
        
-        <h1 className="text-5xl md:text-7xl font-bold mb-4 text-white">
-          Hi, I’m{" "}
+        <h1 className="text-5xl md:text-7xl font-bold mb-4 text-black dark:text-white">
+          Hi, I'm{" "}
           <span className="gradient-text-1">
             Allen
           </span>
         </h1>
 
        
-        <p className="text-slate-200/70 text-lg mb-10">
+        <p className="text-black/70 dark:text-slate-200/70 text-lg mb-10">
           Full-Stack Developer | Next.js | React
         </p>
 

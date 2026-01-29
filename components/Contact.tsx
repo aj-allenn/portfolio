@@ -45,13 +45,13 @@ const Contact = () => {
     <section id="contact" className="py-24 px-6 max-w-6xl mx-auto scroll-mt-24">
       <Reveal>
         <div className="text-center mb-12">
-          <p className="text-sm uppercase tracking-[0.2em] text-slate-200/70">
+          <p className="text-sm uppercase tracking-[0.2em] text-black/70 dark:text-slate-200/70">
             Connect with me
           </p>
           <h2 className="mt-3 text-4xl sm:text-5xl font-semibold tracking-tight gradient-text-1">
             Get in touch
           </h2>
-          <p className="text-center max-w-2xl mx-auto mt-5 text-slate-200/80">
+          <p className="text-center max-w-2xl mx-auto mt-5 text-black/80 dark:text-slate-200/80">
             I&apos;d love to hear from you. If you have questions, ideas, or
             opportunities, send a message below.
           </p>
@@ -66,36 +66,36 @@ const Contact = () => {
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
             <label className="grid gap-2">
-              <span className="text-sm text-slate-200/70">Name</span>
+              <span className="text-sm text-black/70 dark:text-slate-200/70">Name</span>
               <input
                 type="text"
                 name="name"
                 placeholder="Your name"
                 required
-                className="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-400 focus:ring-2 focus:ring-cyan-300/60"
+                className="w-full rounded-xl border border-white/10 dark:border-white/10 border-black/20 bg-white/50 dark:bg-black/20 px-4 py-3 text-sm text-black dark:text-white outline-none placeholder:text-black/50 dark:placeholder:text-slate-400 focus:ring-2 focus:ring-cyan-300/60"
               />
             </label>
 
             <label className="grid gap-2">
-              <span className="text-sm text-slate-200/70">Email</span>
+              <span className="text-sm text-black/70 dark:text-slate-200/70">Email</span>
               <input
                 type="email"
                 name="email"
                 placeholder="you@example.com"
                 required
-                className="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-400 focus:ring-2 focus:ring-cyan-300/60"
+                className="w-full rounded-xl border border-white/10 dark:border-white/10 border-black/20 bg-white/50 dark:bg-black/20 px-4 py-3 text-sm text-black dark:text-white outline-none placeholder:text-black/50 dark:placeholder:text-slate-400 focus:ring-2 focus:ring-cyan-300/60"
               />
             </label>
           </div>
 
           <label className="grid gap-2 mb-6">
-            <span className="text-sm text-slate-200/70">Message</span>
+            <span className="text-sm text-black/70 dark:text-slate-200/70">Message</span>
             <textarea
               name="message"
               rows={6}
               placeholder="Tell me about your project…"
               required
-              className="w-full resize-none rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-400 focus:ring-2 focus:ring-cyan-300/60"
+              className="w-full resize-none rounded-xl border border-white/10 dark:border-white/10 border-black/20 bg-white/50 dark:bg-black/20 px-4 py-3 text-sm text-black dark:text-white outline-none placeholder:text-black/50 dark:placeholder:text-slate-400 focus:ring-2 focus:ring-cyan-300/60"
             />
           </label>
 
@@ -108,7 +108,7 @@ const Contact = () => {
           </button>
 
           {result && (
-            <p className="mt-4 text-center text-sm text-slate-200/80">
+            <p className="mt-4 text-center text-sm text-black/80 dark:text-slate-200/80">
               {result}
             </p>
           )}

@@ -79,10 +79,10 @@ export default function Services() {
             >
               <service.icon className="w-7 h-7 text-black" />
             </div>
-            <h3 className="text-xl font-semibold mb-2 text-white">
+            <h3 className="text-xl font-semibold mb-2 text-black dark:text-white">
               {service.title}
             </h3>
-            <p className="text-slate-300/90">
+            <p className="text-black/90 dark:text-slate-300/90">
               {service.description}
             </p>
           </Reveal>

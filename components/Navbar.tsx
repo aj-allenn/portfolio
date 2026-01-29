@@ -22,7 +22,7 @@ export default function Navbar() {
   const [active, setActive] = useState<string>("about");
   const [open, setOpen] = useState(false);
 
-  /* 🔥 Scroll-spy logic */
+  
   useEffect(() => {
     const elements = links
       .map((l) => document.getElementById(l.id))
@@ -71,17 +71,32 @@ export default function Navbar() {
             className="relative rounded-full px-4 py-2 text-sm transition text-slate-200/80 hover:text-white hover:bg-white/5"
           >
             <span className="relative z-10">{l.label}</span>
-
-            {/* {isActive && (
-              <motion.span
-                layoutId="navActivePill"
-                className="absolute inset-0 rounded-full bg-white/10 border border-white/10"
-                transition={{ type: "spring", stiffness: 420, damping: 32 }}
-              />
-            )} */}
           </a>
         );
       })}
+
+       {/* resume button */}
+
+
+       <a 
+        href="/resume/Allen-John.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={onClick}
+        className=" inline-flex items-center gap-2
+              px-4 py-2 rounded-full
+              border border-white/15 bg-gradient-to-r from-cyan-400 to-purple-500 text-black text-sm font-medium
+              bg-white/5 backdrop-blur
+              hover:bg-white/10 transition">
+         
+          View Resume
+         
+        </a>
+
+
+      <div className="md:ml-2">
+        <ThemeToggle />
+      </div>
     </div>
   );
 
@@ -101,11 +116,6 @@ export default function Navbar() {
 
             <div className="hidden md:block">
               <NavLinks />
-              <ThemeToggle/>
-            </div>
-
-            <div className="md:hidden">
-              <ThemeToggle/>
             </div>
 
 

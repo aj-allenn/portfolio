@@ -3,45 +3,41 @@
 import { useTheme } from "next-themes";
 import { Sun, Moon } from "lucide-react";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // Prevent hydration mismatch
+  // Avoid hydration mismatch
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null;
+  if (!mounted) {
+    return (
+      <button
+        className="rounded-full border border-white/10 bg-white/5 p-2 text-white transition hover:bg-white/10"
+        aria-label="Toggle theme"
+      >
+        <Sun size={18} />
+      </button>
+    );
+  }
 
   const isDark = theme === "dark";
 
   return (
-    <button
+    <motion.button
       onClick={() => setTheme(isDark ? "light" : "dark")}
+      className="rounded-full border border-white/10 bg-white/5 p-2 text-white transition hover:bg-white/10"
       aria-label="Toggle theme"
-      className="
-        relative flex items-center justify-center
-        h-9 w-9 rounded-full
-        border border-white/10
-        bg-white/5 backdrop-blur
-        transition-all duration-300
-        hover:bg-white/10 hover:scale-105
-        active:scale-95
-      "
+      whileTap={{ scale: 0.95 }}
+      animate={{ rotate: isDark ? 0 : 180 }}
+      transition={{ duration: 0.3 }}
     >
-      {isDark ? (
-        <Sun
-          size={18}
-          className="text-yellow-400 transition-transform duration-300 rotate-0"
-        />
-      ) : (
-        <Moon
-          size={18}
-          className="text-sky-500 transition-transform duration-300 rotate-0"
-        />
-      )}
-    </button>
+      {isDark ? <Sun size={18} /> : <Moon size={18} />}
+    </motion.button>
   );
 }
+

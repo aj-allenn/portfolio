@@ -4,17 +4,18 @@ import Image from "next/image";
 import Reveal from "./Reveal";
 
 const skills = [
-  { name: "HTML", icon: "/images/html5.png", badge: "from-orange-400/25 to-amber-400/10" },
-  { name: "CSS", icon: "/images/css.png", badge: "from-sky-400/25 to-blue-500/10" },
-  { name: "JavaScript", icon: "/images/javascript.png", badge: "from-yellow-400/25 to-amber-500/10" },
-  { name: "React", icon: "/images/react.png", badge: "from-cyan-400/25 to-sky-500/10" },
-  // Next.js logo is dark; invert it only (keeps other icons unchanged)
-  { name: "Next.js", icon: "/images/nextdotjs.png", badge: "from-purple-400/20 to-pink-400/10", invert: true },
-  { name: "Node.js", icon: "/images/nodedotjs.png", badge: "from-emerald-400/25 to-green-500/10" },
-  { name: "Express", icon: "/images/express.png", badge: "from-slate-400/20 to-slate-200/5" },
-  { name: "MongoDB", icon: "/images/mongodb.png", badge: "from-emerald-400/25 to-cyan-400/10" },
-  { name: "Tailwind", icon: "/images/tailwindcss.png", badge: "from-cyan-400/25 to-purple-400/10" },
-  { name: "TypeScript", icon: "/images/typescript.png", badge: "from-blue-400/25 to-sky-500/10" },
+  { name: "HTML", icon: "/images/html5.png", badge: "from-orange-400/45 to-amber-400/25 dark:from-orange-400/25 dark:to-amber-400/10" },
+  { name: "CSS", icon: "/images/css.png", badge: "from-sky-400/45 to-blue-500/25 dark:from-sky-400/25 dark:to-blue-500/10" },
+  { name: "JavaScript", icon: "/images/javascript.png", badge: "from-yellow-400/45 to-amber-500/25 dark:from-yellow-400/25 dark:to-amber-500/10" },
+  { name: "React", icon: "/images/react.png", badge: "from-cyan-400/45 to-sky-500/25 dark:from-cyan-400/25 dark:to-sky-500/10" },
+
+  // Next.js logo is dark; invert it only in dark mode (keeps light mode looking correct)
+  { name: "Next.js", icon: "/images/nextdotjs.png", badge: "from-purple-400/40 to-pink-400/20 dark:from-purple-400/20 dark:to-pink-400/10", invert: true },
+  { name: "Node.js", icon: "/images/nodedotjs.png", badge: "from-emerald-400/45 to-green-500/25 dark:from-emerald-400/25 dark:to-green-500/10" },
+  { name: "Express", icon: "/images/express.png", badge: "from-slate-400/35 to-slate-200/15 dark:from-slate-400/20 dark:to-slate-200/5" },
+  { name: "MongoDB", icon: "/images/mongodb.png", badge: "from-emerald-400/45 to-cyan-400/25 dark:from-emerald-400/25 dark:to-cyan-400/10" },
+  { name: "Tailwind", icon: "/images/tailwindcss.png", badge: "from-cyan-400/45 to-purple-400/25 dark:from-cyan-400/25 dark:to-purple-400/10" },
+  { name: "TypeScript", icon: "/images/typescript.png", badge: "from-blue-400/45 to-sky-500/25 dark:from-blue-400/25 dark:to-sky-500/10" },
 ];
 
 const Skills = () => {
@@ -39,7 +40,7 @@ const Skills = () => {
             "
           >
             <div
-              className={`rounded-2xl p-3 border border-white/10 bg-gradient-to-br ${skill.badge}`}
+              className={`rounded-2xl p-3 border border-black/10 dark:border-white/10 bg-gradient-to-br ${skill.badge}`}
             >
               <Image
                 src={skill.icon}
@@ -48,11 +49,11 @@ const Skills = () => {
                 height={48}
                 className={[
                   "transition-transform group-hover:scale-110",
-                  skill.invert ? "invert brightness-200 contrast-200" : "",
+                  skill.invert ? "dark:invert dark:brightness-200 dark:contrast-200" : "",
                 ].join(" ")}
               />
             </div>
-            <span className="text-sm text-slate-200">
+            <span className="text-sm text-black dark:text-slate-200">
               {skill.name}
             </span>
           </Reveal>

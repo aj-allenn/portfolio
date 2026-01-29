@@ -23,14 +23,10 @@
   }
 
   body {
-    background: hsl(222 47% 7%);
-    color: hsl(210 47% 11%);
+    background: var(--bg-main);
+    color: var(--fg-main);
     font-family: var(--font-geist-sans), ui-sans-serif, system-ui;
-  }
-
-  html.dark body{
-    background-color: hsl(222 47% 7%);
-    color: hsl(210 40% 98%);
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   ::selection {
@@ -69,9 +65,15 @@
   .card {
     position: relative;
     border-radius: 1.25rem;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.05), 0 18px 60px rgba(0,0,0,0.1);
+  }
+
+  .dark .card {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.10);
-    backdrop-filter: blur(14px);
     box-shadow: 0 0 0 1px rgba(148,163,184,0.10), 0 18px 60px rgba(0,0,0,0.38);
   }
 
@@ -142,10 +144,24 @@
       rgba(236, 72, 153, 0.2),
       transparent 40%
     ),
-    #0a0a0a;
+    var(--bg-main);
 
   background-size: 200% 200%;
   animation: gradientMove 15s ease infinite;
+}
+
+.dark .animated-bg {
+  background: radial-gradient(
+      circle at top left,
+      rgba(168, 85, 247, 0.25),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(236, 72, 153, 0.2),
+      transparent 40%
+    ),
+    #0a0a0a;
 }
 
 .grain {

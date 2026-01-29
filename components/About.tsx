@@ -13,7 +13,7 @@ export default function About() {
           About me
         </h2>
 
-        <p className="text-slate-300/90 leading-relaxed text-lg">
+        <p className="text-black/90 dark:text-slate-300/90 leading-relaxed text-lg">
           I’m a MERN Stack Developer passionate about building modern, responsive,
           and scalable web applications. I work with MongoDB, Express.js, React.js,
           and Node.js to develop full-stack solutions with clean, maintainable
