@@ -149,13 +149,13 @@ export default function Navbar() {
               animate={{ y: 0, opacity: 1, scale: 1 }}
               exit={{ y: -12, opacity: 0, scale: 0.98 }}
               transition={{ type: "spring", stiffness: 380, damping: 34 }}
-              className="absolute left-1/2 top-4 w-[calc(100%-2rem)] -translate-x-1/2 rounded-2xl border border-white/10 bg-black/70 backdrop-blur-xl p-3 shadow-glow"
+              className="absolute left-1/2 top-0 w-[110%] h-full border border-white/10 bg-black/70 backdrop-blur-xl p-3 shadow-glow"
             >
-              <div className="flex items-center justify-between px-2 pb-2">
-                <span className="text-sm text-slate-200/70">Menu</span>
+              <div className="flex items-center justify-between ml-4 px-25 pb-2">
+              
                 <button
                   onClick={() => setOpen(false)}
-                  className="rounded-full border border-white/10 bg-white/5 p-2 text-white"
+                  className="rounded-full ml-23 border border-white/10 bg-white/5 p-2 text-white"
                 >
                   <X size={18} />
                 </button>
@@ -169,3 +169,11 @@ export default function Navbar() {
     </header>
   );
 }
+
+
+
+
+
+
+
+
