@@ -60,43 +60,44 @@ export default function Navbar() {
 
   const NavLinks = ({ onClick }: { onClick?: () => void }) => (
     <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-1">
-      {links.map((l) => {
-        const isActive = active === l.id;
+      {/* Theme Toggle - First in mobile, last in desktop */}
+      <div className="order-1 md:order-3 md:ml-2">
+        <ThemeToggle />
+      </div>
 
-        return (
-          <a
-            key={l.id}
-            href={`#${l.id}`}
-            onClick={onClick}
-            className="relative rounded-full px-4 py-2 text-sm transition text-slate-200/80 hover:text-white hover:bg-white/5"
-          >
-            <span className="relative z-10">{l.label}</span>
-          </a>
-        );
-      })}
+      {/* Navigation Links - Second in mobile, first in desktop */}
+      <div className="order-2 md:order-1 flex flex-col md:flex-row gap-2 md:gap-1">
+        {links.map((l) => {
+          const isActive = active === l.id;
 
-       {/* resume button */}
+          return (
+            <a
+              key={l.id}
+              href={`#${l.id}`}
+              onClick={onClick}
+              className="relative rounded-full px-4 py-2 text-sm transition text-slate-200/80 hover:text-white hover:bg-white/5"
+            >
+              <span className="relative z-10">{l.label}</span>
+            </a>
+          );
+        })}
+      </div>
 
-
-       <a 
+      {/* Resume button - Third in mobile, second in desktop */}
+      <a 
         href="/resume/Allen_resume.pdf"
         target="_blank"
         rel="noopener noreferrer"
         onClick={onClick}
-        className=" inline-flex items-center gap-2
-              px-4 py-2 rounded-full
-              border border-white/15 bg-gradient-to-r from-cyan-400 to-purple-500 text-black text-sm font-medium
+        className="order-3 md:order-2 inline-flex items-center gap-2
+              px-3 py-1.5 md:px-4 md:py-2 rounded-full
+              border border-white/15 bg-gradient-to-r from-cyan-400 to-purple-500 text-black text-xs md:text-sm font-medium
               bg-white/5 backdrop-blur
               hover:bg-white/10 transition">
          
           View Resume
          
         </a>
-
-
-      <div className="md:ml-2">
-        <ThemeToggle />
-      </div>
     </div>
   );
 
@@ -131,41 +132,57 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="md:hidden fixed inset-0 z-50"
+      {/* Mobile Menu */}
+<AnimatePresence>
+  {open && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-40 md:hidden"
+    >
+      {/* Overlay */}
+      <div
+        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+        onClick={() => setOpen(false)}
+      />
+
+      {/* Sidebar */}
+      <motion.div
+        initial={{ x: "100%" }}
+        animate={{ x: 0 }}
+        exit={{ x: "100%" }}
+        transition={{ type: "spring", stiffness: 320, damping: 30 }}
+        className="absolute right-0 top-0 h-full w-[85%] max-w-sm
+                   bg-black/80 backdrop-blur-xl
+                   border-l border-white/10
+                   shadow-glow z-50"
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
+          <span className="text-lg font-semibold gradient-text-2">
+           
+          </span>
+
+          <button
+            onClick={() => setOpen(false)}
+            className="rounded-full border border-white/20 bg-white/10 p-2 text-white
+                       hover:bg-white/20 transition"
+            aria-label="Close menu"
           >
-            <div
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-              onClick={() => setOpen(false)}
-            />
+            <X size={20} />
+          </button>
+        </div>
 
-            <motion.div
-              initial={{ y: -12, opacity: 0, scale: 0.98 }}
-              animate={{ y: 0, opacity: 1, scale: 1 }}
-              exit={{ y: -12, opacity: 0, scale: 0.98 }}
-              transition={{ type: "spring", stiffness: 380, damping: 34 }}
-              className="absolute left-1/2 top-0 w-[110%] h-full border border-white/10 bg-black/70 backdrop-blur-xl p-3 shadow-glow"
-            >
-              <div className="flex items-center justify-between ml-4 px-25 pb-2">
-              
-                <button
-                  onClick={() => setOpen(false)}
-                  className="rounded-full ml-23 border border-white/10 bg-white/5 p-2 text-white"
-                >
-                  <X size={18} />
-                </button>
-              </div>
+        {/* Links */}
+        <div className="px-5 py-6">
+          <NavLinks onClick={() => setOpen(false)} />
+        </div>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
 
-              <NavLinks onClick={() => setOpen(false)} />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </header>
   );
 }
